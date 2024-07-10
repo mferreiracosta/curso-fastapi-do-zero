@@ -8,9 +8,9 @@ def test_read_root_deve_retornar_ok_e_ola_mundo(client):
     assert response.json() == {'message': 'Olá Mundo!'}
 
 
-def test_read_root_html_deve_retornar_ok_e_body_ola_mundo(client):
+def test_read_root_html_deve_retornar_ok_e_ola_mundo(client):
     response = client.get('/html')
-    expeted_body = """
+    expected_response = """
     <html>
         <head>
             <title>Nosso olá mundo!</title>
@@ -22,4 +22,4 @@ def test_read_root_html_deve_retornar_ok_e_body_ola_mundo(client):
     </html>"""
 
     assert response.status_code == HTTPStatus.OK
-    assert response.text == expeted_body
+    assert response.text == expected_response
